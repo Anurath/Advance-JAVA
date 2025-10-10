@@ -1,0 +1,5 @@
+package com.jsp.empcrud1;
+
+public class EmployeeInsertOperation {
+
+}

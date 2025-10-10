@@ -1,0 +1,33 @@
+package com.jsp.empcrud1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class EmployeeDeleteOperation {
+
+	public static void main(String[] args) {
+		
+		String url = "jdbc:postgres//localhost:5432/employee1";
+		String user = "postgres";
+		String pass = "Anurath@123";
+		
+		try(Connection con = DriverManager.getConnection(url, user, pass); Scanner sc =  new Scanner(System.in);)
+		{
+			String query = "DELETE FROM EMP WHERE ID = ?";
+			
+			PreparedStatement st = con.prepareStatement(query);
+			
+			System.out.println("Enter Id to Delete Data: ");
+			int id = sc.nextInt();
+			
+			st.execute();
+			System.out.println("Data Deleted Successfully.");
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

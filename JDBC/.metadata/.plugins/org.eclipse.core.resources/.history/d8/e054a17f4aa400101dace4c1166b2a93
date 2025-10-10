@@ -1,0 +1,5 @@
+package com.jsp.hibernate;
+
+public class CustomerDriver {
+
+}
